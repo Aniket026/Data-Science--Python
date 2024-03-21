@@ -1,0 +1,113 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Mar 21 08:18:31 2024
+
+@author: aniket
+"""
+dict1={"brand":"maruti",
+       "model":"2345",
+       "year":2011}
+
+#adding items in dict :
+dict1["color"]="white"
+print(dict1)
+
+
+#change the value in dict :
+dict1["color"]="red"
+
+
+#remove the element in dict 
+#in dict we use key for pop element :
+dict1.pop("color")
+print(dict1)
+
+
+#accesing key in dictionary :
+for x in dict1:
+    print(x)
+
+
+#accesing value in dictionary :
+for x in dict1:
+    print(dict1[x])
+
+
+#Accesing both key and value :
+for keys,values in dict1.items():
+    print("%s==%s"%(keys,values))
+    
+    
+#Copying dictionary :
+car=dict1.copy() #car is new dictionary
+print(car)
+
+
+#Another way to copy Dictionary:
+car2=dict(car) #car2 is new dict
+print(car2)
+
+
+#Nested Dictionary :
+our_family={
+    "child1":{
+             "name":"Ram",
+             "DOB":"2-3-2004"
+             },
+    "child2":{
+             "name":"sham",
+             "DOB":"7-1-2004"
+             }
+          }
+print(our_family)
+
+#if you want to clear the dictionary
+child1={
+          "name":"Ram",
+          "DOB":"2-3-2004"
+         }
+child1.clear()
+child1
+
+
+#fromkey 
+x={"key1","key2","key3"}
+y=1
+thisdict=dict.fromkeys(x,y)
+print(thisdict)
+
+
+# to get the value of dict. we use get() method
+child1={
+          "name":"Ram",
+          "DOB":"2-3-2004"
+         }
+child1.get("name")
+
+
+#For display or accessing element in dict using [ .items() ]it generate the tuple
+car.items()
+
+
+#values():for display sll the values of dict. :
+car.values()
+
+
+#update(): Insert the elements in dictionary :
+car.update({"hight":"37.7"})
+print(car)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
