@@ -1,0 +1,152 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Mar 21 09:28:04 2024
+
+@author: aniket
+
+tita:for loop,functionwith argument
+"""
+
+#for loop:
+    
+a=["apple","banana","cherry"]
+for i in a:
+    print(i)
+    if i=="banana":
+        break
+print("-------------------------------------------")
+
+
+for i in a:
+    if i=="banana":
+        break
+    print(i)
+print("-------------------------------------------")
+
+
+for i in a:
+    if i=="banana":
+        continue
+    print(i)
+print("-------------------------------------------")
+
+
+
+for x in range(3,30,3):
+    print(x)
+print("-------------------------------------------")
+
+
+c=["a","b","c","d"] 
+d=["g","h","j"]
+for x in  c:
+    for y in  d:
+        print(x,y)
+print("-------------------------------------------")  
+
+
+#function 
+def fun():
+    print("hello")
+fun()  
+  
+#function with argumnet
+def fun2(name):
+    print("my name is ",name)
+fun2("aniket")
+
+
+#when we are passing two or more than argument in function they called positional argumnet
+def fun2(n,s): 
+    print("my name is "+n+" " +s)
+fun2("aniket","Borawake")
+print("-------------------------------------------") 
+
+
+#arbritrary argument
+def fun2(*n): 
+    print("my name is "+n[0]+" "+n[2])
+fun2("aniket","Borawake","rushikesh")
+print("-------------------------------------------") 
+
+
+#Defult value function
+def myfun(name="aniket"):
+    print("my name is "+name)
+myfun()
+myfun("rushi")
+print("-------------------------------------------") 
+
+
+#send the list as argument
+li=["1","2","3"]
+def fun1(li):
+    for x in li:
+        print(x)
+fun1(li)
+print("-------------------------------------------") 
+
+
+#return value of function
+def fun(x):
+    return x*3
+fun(8)
+print("-------------------------------------------")
+
+
+#pass function  if you want empty function then you can use pass function
+#if you write empty function it will give error for that you can use pass keyword
+def fun():
+    pass
+
+#find out the factorial of number 
+#if you can write function inside function it called recursiv function
+def fact(x):
+    if x==1:
+        return 1
+    else:
+        return(x*fact(x-1))
+fact(4)
+print("-------------------------------------------")
+
+
+#lambda function (anonymous )(no memory allocation)
+#if you avoid the space complecity
+#any number  of argument
+#but can only have one expression
+#lambda function take any number of arguments
+def add(a):
+    sum=a+10
+    return sum
+add(20)
+
+add=lambda a:a+10
+print(add(90))
+
+add=lambda b,a:a+b
+print(add(90,20))
+
+#filter: it is method accepts two arguments in python 
+#ans a new iteable and an iterable such as a list
+#the function is called for every items of list,
+#and a new iterable or list is returned that hold just thoes element that retuened True when supplied ot the
+l=[1,2,3,4,5,6,7,8,9]
+even=list(filter(lambda x:(x%2==0),l))
+print(even)
+odd=list(filter(lambda x:(x%2!=0),l))
+print(odd)
+
+squr_lst=list(filter(lambda x:(x**2),l))
+print(squr_lst)
+
+
+
+
+
+
+
+
+
+
+
+
