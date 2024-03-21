@@ -1,0 +1,185 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Mar 20 08:19:07 2024
+
+@author: aniket 
+
+#Finding the odd number between n number
+start=4
+end=20
+for num in range(start ,end+1):
+    if num%2!=0:
+        print(num,end=" ")
+
+#Finding the even number in between n number
+start,end=1,20
+for num in range(start,end+1):
+    if num%2==0:
+        print(num,end=' ')
+
+x,c,v=2,3,4
+print(x)
+print(c)
+print(v)
+
+x="Globle"#globle scope
+def my_fuction():
+    print(x)
+def my_fuction1():
+    s="local"#local scope
+    print(s)
+def my_fuction2():
+    print("hello")
+    print(x)
+
+my_fuction()
+my_fuction1()
+my_fuction2()
+
+x=range(6)
+print(type(x))
+x={"name":"Aniket"}
+print(type(x))
+a=2
+z=a+3j
+print(type(z))
+
+x="aniket"
+a=7
+
+print(x+str(a))
+
+x="My name is Aniket Borawake I am from computerscience"
+print(x[2:8])
+print(x[:20])#slicing from the start
+print(x[4:])#slicing from the end
+print(x[-8:-1])
+
+x="    My name is Aniket Borawake I am from computerscience"
+print(x.upper())
+print(x.lower())
+print(x.strip())#remove white space from start
+print(x.rstrip())#remove white space from end
+print(x.replace("name","nav")) #replece the word
+d="Aniket, borawake"
+print(d.split(" , "))
+print(d.split(" "))
+print(x[::-2])
+print(x.find("am"))
+
+#for adding int value in string we use f string
+z=21
+x="aniket"
+y="borawake"
+print(x+" "+y)
+print(f"my name is {x} and my age is :{z}")
+print(f"{x} {y} {z}")
+quantity =3
+item_no=54
+print(f"I want {quantity} pieces and item number {item_no}")
+
+
+#for adding int in string  second method 
+item_no=3
+price=100
+my_order="i want item no {} of price {}"
+print( my_order.format(item_no,price))
+
+
+#you can use index for adding int in string
+item_no=3
+price=100
+my_order="i want item no {0} of price {1}"
+print( my_order.format(item_no,price))
+
+
+#for adding the double cote in string
+text="my name is aniket \"borawake\""
+print(text)
+
+
+#rule for mathematical operations
+pemdas
+p:paranthesis
+e:exponential
+m:mul
+d:div
+a:add
+s:sub
+
+print(3*3+9/2)
+#############################################
+#list
+list is mutable
+
+l=["mango","banan","Apple","Apple"]
+print(l.count("Apple"))
+print(l[1])
+print(l[0])
+l.append("cherry")#add the item at end of the list
+l[2]="h"#add the item at any location
+print(l[2])
+##print(l)
+#l.clear() for empty list
+#print(l)
+z=l.copy() #for copy the list
+print(z)
+
+l1=[1,2,3,4]
+l2=[4,6,7,8,9]
+l1.extend(l2) #for adding list into list
+print(l1)
+l1.insert(2,33)
+l1[4]=222
+print(l1)
+
+l1.pop(1)#for remove the item in list in pop method you give index
+print(l1)
+l2.remove(9)#for remove item in list in remove method we give item name
+print(l2)
+
+l2.reverse()#for reverse the list
+print(l2)
+
+l=["mango","banan","Apple","Apple"]
+l.sort()#sort alphabeticali order
+print(l)
+
+#####################################################
+
+# tuple
+
+#tuple is emutabel if you want change the tuple item first conver tuple into ist and perform the operation then convert  list into tuple
+#it allow mix datatype
+tup=("aniket","rushi","Akash","pranit")
+print(tup)
+print(tup[2])
+
+lis=list(tup)
+lis[2]="rahul"
+print(lis)
+lis.insert(2,"yash")
+print(lis)
+
+
+t1=(1,2,"aniket")
+t2=(5,6,7,"borawake")
+t3=t1+t2
+print(t3)
+"""
+#############################################
+#dict
+
+dict1={"brand":"maruti","model":"2345","year":2011}
+print(dict1)
+print(len(dict1))
+print(type(dict1))
+#complet table using dict
+dict2={"brand":["maruti","mahindra","toyato"],
+      "model":["a","b","c"],
+       "year":[2011,2013,2024]}
+
+print(dict2)
+dict2.get("year")
+dict2.keys()
+
