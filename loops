@@ -1,0 +1,73 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Mar 19 08:27:08 2024
+
+@author: aniket
+
+"""
+"""
+a=5
+b=3
+print(a**b)
+
+
+x=0
+x+=2
+x
+print(x)
+
+winner=None
+print(winner is None) #is give output is in the form of true or flase
+print(winner is  not None)
+print("winner",winner)
+print("winner is none : ",winner is  None)
+print("winner is not none : ",winner is not None)
+
+
+num=int(input("Enter the Number : "))
+if num>0:
+    print("Your Number is :",num)
+
+num1=int(input("Enter the number :"))
+if num1>0:
+    print("Number is not negative")
+else :
+    print("Number is negative ")
+    
+saving=int(input("Enter your saving : "))
+if saving==0:
+    print("sorry no saving")
+elif saving<500:
+    print("well done")
+elif saving<999 and saving>500:
+    print("your saving is in the 500 to 1000:")
+elif saving>1000 and saving <15000:
+    print("your saving is in the 1000 to 1500:")
+else:
+    print("no saving")
+    
+
+count=1
+while count<=10:
+    print(count)
+    count+=1
+
+
+for i in range(2,10):
+    print(i)
+    print("done")
+
+print("only print code if all iterations completed")
+num=int(input('enter the numer to check'))
+for i in range(1,20):
+    if i==num:
+        break
+    print(i)
+print("done")
+
+"""
+for _ in range (1,10):#anonymous dose not required memory or not allocatet the memory
+   print(".",end='Aniket')
+   print()
+
+ 
