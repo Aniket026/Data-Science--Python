@@ -1,0 +1,185 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Mar 22 08:22:05 2024
+
+@author: aniket
+
+hight=int(input("Enter your hight :"))
+if hight>=200:
+    print("You are eligible ")
+    age=int(input("Enter your age : "))
+    if age<12:
+        print("child tickrt is 5$")
+        bill=5
+    elif age>12 and age<60:
+        print("youer tickrt is 10$")
+        bill=10
+    photo=input("if you want photo y/n")
+    if photo=="y":
+        bill+=10
+    else:
+        print("not eligible ")
+    print(bill)
+else:
+    print("You are not eligible")
+    
+
+hight=float(input("Enter you hight in meter "))
+weight=float(input("Enter your weight in kg "))
+BMI=round((weight/(hight*hight)),2)
+if BMI<18.5:
+    print(f"You are under weight and your BMI is {BMI}")
+elif BMI>18.5 and BMI<25:
+    print(f"You are normal weight and your BMI is {BMI}")
+elif BMI>25 and BMI<30:
+    print(f"You are over weight and your BMI is {BMI}")
+elif BMI>30 and BMI<35:
+    print(f"You are obese weight and your BMI is {BMI}")
+elif BMI>35:
+    print(f"You are clinically obese weight and your BMI is {BMI}")
+else:
+    print("wrong information")
+    
+#########################################################
+
+
+#find out the duplicate from the list
+li=[1,2,3,4,5,6,7,4,8]
+
+def duplicate(li):
+    for i in range(len(li)-1):
+        if (li[i]==li[i+1]):
+            return True
+    return False
+print(duplicate(li))
+
+#########################################################
+#leap year 
+def is_leap_year(year):
+    if(year>0) and (year%4==0) or (year%100!==0) or (year%400==0):
+        return True
+    return False
+is_leap_year(2017)
+
+##########################################################
+
+    
+a=5
+b=5
+for i in range (5):
+    for j in range (5):
+        print("*", end= " ")
+    print()
+    
+output :
+    * * * * * 
+    * * * * * 
+    * * * * * 
+    * * * * * 
+    * * * * *
+   
+########################################################
+a=5
+b=5
+for i in range (5):
+    for j in range (i+1):
+        print("*", end= " ")
+    print()
+
+output :
+    
+    * 
+    * * 
+    * * * 
+    * * * * 
+    * * * * * 
+ 
+ #########################################################
+ 
+for i in range (5):
+     for j in range (4-i):
+         print("*", end= " ")
+     print()
+
+output:
+    
+    * * * * 
+    * * * 
+    * * 
+    * 
+
+
+####################################################
+#finding the min and max from the list
+li=[6,4,3,2,8,9,1,10]
+def min_value(li):
+    min=li[0]
+    for i in li:
+        if i< min:
+            min=i
+    print("Minimun value is ",min)
+min_value(li)
+
+def max_value(li):
+    max=li[0]
+    for i in li:
+        if i> max:
+            max=i
+    print("Max value is ",max
+min_value(li)
+max_value(li)
+
+
+
+#####################################################
+#panildrom
+
+def palindrom(input):
+     if input==" ":
+        print("not input")
+    else:
+         string==input[::-1]
+         if string==input:
+            return True
+         return False
+palindrom("anna")
+
+########################################################
+n=["aniket","pranit","rushi","akash"]
+name=input("Enetr your name : ")
+for i in n:
+    if name==i:
+        print(f"hello {i}")
+        break
+    else:
+        print("hello")
+"""
+#########################################################
+
+import string
+ad=["a","s","b","c","y","p"]
+import random
+ads=random.choice(ad)
+sp=random.choice(string.punctuation)
+num=random.randint(0, 100)
+password=ads+str(num)+sp
+print("your new password : %s"%password)
+
+##########################################################
+while True:
+    import string
+    ad=["a","s","b","c","y","p"]
+    import random
+    ads=random.choice(ad)
+    sp=random.choice(string.punctuation)
+    num=random.randint(0, 100)
+    password=ads+str(num)+sp
+    s=password.upper()
+    print("your new password : %s"%s)
+    rp=input("Enter n /y")
+    if rp=="n":
+        break
+    else:
+        continue
+    
+
