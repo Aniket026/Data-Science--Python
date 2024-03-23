@@ -1,0 +1,69 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Mar 22 08:22:05 2024
+
+@author: aniket
+
+def my_fun(name):
+    print(f"My name is {name}")
+    print(f"{name}")
+my_fun("aniket")
+my_fun("rahul")
+
+
+
+
+#------------------------------------------------------------------------------------------
+#function With more than one input 
+
+
+def my_fun(name,location):
+    print(f"My name is {name}")
+    print(f"I am from{location}")
+my_fun("aniket","kopergaon")
+
+
+
+#------------------------------------------------------------------------------------------
+
+
+def my_fun(name,location):
+    print(f"My name is {name}")
+    print(f"I am from{location}")
+my_fun(location="kopergaon",name="aniket")
+
+
+
+#------------------------------------------------------------------------------------------
+
+#Calculet number of cans needs
+
+import math
+def paint(hight,width,cover):
+    num_cans=(hight*width)/cover
+    round_can=math.ceil(num_cans)
+    print(f"you need {round_can}")
+test_h=int(input("Enter hight"))
+test_w=int(input("Enter width"))
+coverage=5
+paint(hight=test_h,width=test_w,cover=coverage)
+
+
+#------------------------------------------------------------------------------------------
+#Prime number 
+
+
+
+def prime(a):
+    valid=True
+    for i in range(2,a):
+        if a%i==0:
+           
+           valid=False
+        if valid:
+            print("number prime")
+            break
+        else:
+           ("print not  prime")
+           break
+prime(31)
