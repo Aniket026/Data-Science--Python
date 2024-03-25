@@ -1,0 +1,82 @@
+-*- coding: utf-8 -*-
+"""
+Created on Mon Mar 25 08:17:16 2024
+
+@author: aniket
+"""
+
+#Generator :
+#write in tuple (-----)
+#it is anothr way to create iterators
+#allow to return multiple values
+#<generator object <genexpr> at 0x0000017A9B7D0E10>  it is object
+
+gen=(x for x in range (3))
+print(gen)
+for num in  gen:
+    print(num)
+gen1=(x for x in range(3))
+next(gen1)   #next : one value at a time
+next(gen1)
+next(gen1)  
+
+
+
+#function returning multiple value
+def even(end):
+    for num in range (0,end,2):
+        yield num   #yield return multiple values
+for num in  even(6):
+    print(num)
+
+
+#now instead of using for loop we can write our own generetor 
+gen3=even(6)
+next(gen3)
+next(gen3)
+
+
+#chaining Generators
+
+
+#in this program we take the noun and adjective from user and generate the random number and create the password
+#then convert in to "*"
+import random
+import string
+
+def lenght(itr):    
+    for ele in itr:
+        yield len(ele)
+def hide(itr):
+    for ele in itr:
+        yield ele*"*"
+
+ad=input("Enter the noun : ")
+aj=input("Enter the adjective : ")
+
+sp=random.choice(string.punctuation)
+num=random.randint(0,100)
+password=ad+aj+str(num)+sp
+print("your new password : %s"%password)  
+li=[]
+li.append(password)
+for passwords in hide( lenght(li)):
+    print(passwords)
+
+####################################################
+
+#Enumerater  -----------------[interview]
+
+#printing list with index
+l=["Aniket","Borawake"]
+for i in range(len(l)):
+    print(f"{i+1} {l[i]}")
+    
+   
+#same code can be implemented using enumerater 
+l=["aniket","borawake","rushi","chobe"]
+for index,item in enumerate(l,start=1):
+    print(f"{index } {item}")
+
+#####################################################
+ 
