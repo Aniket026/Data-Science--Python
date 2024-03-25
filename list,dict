@@ -1,0 +1,49 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Mar 25 08:17:16 2024
+
+@author: aniket
+"""
+"""
+#Itertools
+lst=[]
+for num in range(0,10):
+    lst.append(num) #for adding items in list
+print(lst)
+
+
+#list comprehenser   ------------[interview]
+#we can write same method using list comprehension
+#code optimization methods
+lst=[num for num in range (0,10)]
+print(lst)
+
+
+# [ new_variable_create_in for_loop.capitalize ] It convet first letter capital
+names=["dada","mama","kaka"]
+lst=[i.capitalize() for i in names]
+print(lst)
+
+
+#list comprehension with if statment
+#write side of (if) statment write business logic
+def is_even(num):
+    return num%2==0
+lst=[num for num in range(10) if is_even(num)]
+print(lst)
+
+
+
+lst=[f"{x}{y}"for x in range (5) for y in range(5)]
+print(lst)
+
+#############################################################
+
+#dictionary comprehension  ----------[interview]
+#use {} base
+#business logic left hand side
+dic={x:x*x for x in range (4)}
+print(dic)
+
+
+#############################################################
