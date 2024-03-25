@@ -1,0 +1,173 @@
+#zip function
+
+#you can access both list at a time using zip function
+a=[1,2,3,4,5]
+b=["a","b","c","d","e"]
+for n,i in zip(a,b):
+    print(n,i)
+
+
+#for missmatch list we use zip_longest
+#from itertools import zip_longest
+#use of fill value instead None
+
+a=[1,2,3,4]
+b=["a","b","c","d","e"]
+for i,n in zip_longest(a,b):
+    print(i,n)
+
+
+#use of all(),if all the value are true then it will produce output
+lst=[1,2,3,4,-1,-2]
+if all(lst):
+    print("all values are true ")
+else:
+    print("there are zero  value")
+    
+lst=[1,2,3,4,-1,-2,0]
+if all(lst):
+    print("all values are true ")
+else:
+    print("there are zero  value")
+    
+    
+######################################################
+
+#any() fuction
+#there is all values are zero and one non-zero value present then return true othewise false
+lst=[1,2,3,4,-1,-2,0,0,0]
+if any(lst):
+    print("it has some non zero value ")
+else:
+    print("useless")
+
+
+lst=[0,0,0,0,0]
+if any(lst):
+    print("it has some non zero value ")
+else:
+    print("All values are zeros")
+
+
+####################################################
+
+#count()
+#use in machine learing it increment count
+from itertools import count
+counter=count()
+print(next(counter))
+print(next(counter))
+print(next(counter))
+
+
+#now let us start from 1
+counter=count(start=1)
+print(next(counter))
+print(next(counter))
+print(next(counter))
+
+
+#######################################################
+
+#cycle()
+#suppose you have repeated task to be done 
+#this fuction also call perodic function
+
+import itertools
+instructions=("eat","code","sleep")
+for instruction in itertools.cycle(instructions):
+    print(instruction)
+
+#######################################################
+
+
+#repeat
+from itertools import repeat
+for msg in repeat("keep",times=3):
+    print(msg)
+    
+
+########################################################
+
+
+#combination 
+
+from itertools import combinations
+players=["Aniket","Rushikesh","Akash","Abhishek","pranit","raj"]
+count=1
+for i in combinations(players, 2):
+    print(count,i)
+    count+=1
+    
+  
+#############################################################
+
+#permutations
+
+from itertools import permutations
+players=["Aniket","Rushikesh","Akash","Abhishek","pranit","raj"]
+count=1
+for i in permutations(players,2):
+    print(count,i)
+    count+=1
+
+#############################################################
+
+#product
+
+from itertools import product
+count=1
+players=["Aniket","Rushikesh","Akash","Abhishek","pranit","raj"]
+sir_name=["notbook","laptop","mobile"]
+for i in product(players,sir_name):
+    print(count,i)
+    count+=1
+    
+
+############################################################
+
+
+age=[2,3,435,637]
+adults=filter(lambda age:age>=18,age)
+print([age for age in adults])
+
+
+############################################################
+"""
+
+#shallow and deep copy
+
+
+
+list1=[1,2,3,4,5]
+list2=list1
+list1[0]=-10
+print(list1)
+print(list2)
+list1[3]=-10
+print(list2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              
+
+
+
+
