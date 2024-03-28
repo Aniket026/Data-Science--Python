@@ -1,0 +1,156 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Mar 27 08:13:20 2024
+                                      
+@author: aniket
+
+
+#decorators
+#is a function that take in a function and returns it by addding
+#some functionality
+
+def hello():
+    return 'aniket borawake'
+def my_func(function):
+    def wrapper():
+        func=function()
+        make_uppercase=func.upper()
+        return make_uppercase
+    return wrapper
+decoretor=my_func(hello)
+decoretor()
+
+
+#######################################################
+
+def uppre_case(function):
+    def wrapper():
+        fun=function()
+        upper=fun.upper()
+        return upper
+    return wrapper
+@uppre_case #decoretor
+def say_hi():
+    return "aniket"
+say_hi()
+
+######################################################
+#applying multiple decoretor to single function
+#the decorator will applied in the order that we 
+#have called them
+
+
+def split_string(function):
+    def wrapper():
+        fun=function()
+        upper=fun.split()
+        return upper
+    return wrapper
+
+def upper_string(function):
+    def wrapper():
+        fun=function()
+        upper=fun.upper()
+        return upper
+    return wrapper
+
+@split_string
+@upper_string
+def say_hi():
+    return 'aniket borawake'
+say_hi()
+
+
+#######################################################
+#what i
+#it take function   it like placeholder for function
+
+
+import time 
+def time_it(func):
+    def wrapper(*args,**kwargs):
+        start=time.time()
+        result=func(*args,**kwargs)
+        end=time.time()
+        total_time=(end-start)*1000
+        print(func.__name__+f"took {total_time} mil sec")
+        return result
+    return wrapper
+@time_it
+def square(number):
+    lst=[]
+    for num in number:
+       lst.append(num*num)
+    return lst
+
+@time_it
+def cube(number):
+     lst=[]
+     for num in number:
+        lst.append(num*num*num)
+     return lst   
+    
+array=range(0,100000)
+out=cube(array)
+out=square(array)
+
+
+##########################################################
+
+
+
+import time
+def time_it(func):
+    def wrapper(*args,**kwargs):
+        start=time.time()
+        result=func(*args,**kwargs)
+        end=time.time()
+        total_time=(end-start)*1000
+        print(func.__name__+f"took {total_time} mil sec")
+        return result
+    return wrapper
+@time_it
+def square(number):
+    lst=[]
+    
+    for num in number:
+        
+       lst.append(num*num)
+       
+    return lst
+
+@time_it
+
+def cube(number):
+    
+     lst=[]
+     
+     for num in number:
+         
+        lst.append(num*num*num)
+        
+     return lst   
+    
+array=range(0,100000)
+
+out=cube(array)
+
+out=square(array)
+"""
+##############################################################
+
+#exception handaling
+#try chatch and throw
+
+try:
+    n=50
+    b=int(input("enter the number : "))
+    c=n/b
+    print(c)
+    print("done")
+except ZeroDivisionError:
+    print("divied by zero not allow")
+    
+print("outside try except block")
+
+
