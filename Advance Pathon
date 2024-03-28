@@ -1,0 +1,164 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Mar 26 08:26:27 2024
+
+@author: aniket
+
+"""
+'''
+#shallow copy  -------------[interview]
+
+a=[1,2,3,4]  #one level deep
+b=[[2,3,4,5,6]]   #two level deep
+
+#it is a one level deep.modifying one level does not affect
+#use copy.copy()
+a=[1,2,3,4]
+
+import copy
+list1=[1,2,3,4,5,6,7,6]
+list2=copy.copy(list1)
+list1[1]=44
+print(list1)
+print(list2)
+
+#but with nested object, modifying on level 2 or deep is not allow
+#in level 2 copy is not allow 
+import copy
+list_a=[[1,2,3,4],[6,7,8,9,0,9]]  #level 2 deep
+list_b=copy.copy(list_a)
+list_a[0][0]=-10
+print(list_a)
+print(list_b)
+
+##########################################################
+
+# deep copy
+
+#full independent clones.use copy.deepcopy()
+
+import copy
+list_a=[[1,2,3,4],[6,7,8,9,0,9]]  #level 2 deep
+list_b=copy.deepcopy(list_a)
+list_a[0][0]=-10
+print(list_a)
+print(list_b)
+
+#############################################################
+
+
+'''
+
+#data maining 
+import pandas as pd
+
+
+############################################################
+
+
+f1=pd.read_csv('buzzers.csv') #relative path
+#f1=pd.read_csv('‪C:/1-Python/buzzers.csv') #absolute path
+print(f1)
+
+
+###########################################################
+
+#checking working directory
+
+import os 
+with open("buzzers.csv") as raw_data:
+    print(raw_data.read())
+    
+    
+###########################################################
+
+#reading csv data as list
+
+import csv
+with open('buzzers.csv') as raw_data:
+    for line in csv.reader(raw_data):
+        print(line)
+        
+        
+###########################################################
+
+#read csv file  DATA as dictionary
+
+import csv
+with open("buzzers.csv") as data:
+    for line in csv.DictReader(data):
+        print(line)
+        
+    
+############################################################
+
+with open("buzzers.csv") as data:
+    flights={}
+    for line in data:
+        k,v=line.strip.split(",")
+        flights[k]=v
+flights
+
+
+#############################################################
+#defining function inside other function
+
+def plus_one(number):
+    def add_one(number):
+        number1=number+1
+        return number1
+    
+    result=add_one(number) #if you execute function inside function it create object
+    print(result)          #it not give number or string
+plus_one(8)
+
+###############################################################
+#passing function as argument to other function
+
+
+def plus_one(number):
+    number1=number+1
+    return number1
+
+def function_call(function):
+    result=function(3)
+    return result
+function_call(plus_one)
+
+###############################################################
+#function returning other function
+
+def first():
+    print("hii")
+    def sey_hi():
+        print("hello")
+    return sey_hi
+fun=first()
+fun()
+
+##############################################################
+
+#calculate the time required to execute the program
+#need of decoratorb
+
+import time
+def sqr(number):
+    start=time.time()
+    lst=[]
+    for num in number:
+        lst.append(num*num)
+    end=time.time()
+    total_time=(end-start)*1000
+    print(f"time required to execute the program {total_time}")
+    print(lst)
+array=range(1,10000)
+sqr(array)
+
+
+
+
+
+
+
+
+
