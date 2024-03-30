@@ -1,0 +1,165 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Mar 25 11:11:30 2024
+
+@author: aniket
+"""
+#Que-1
+"""
+1.Write a program that reads a letter of the alphabet from the
+user. If the user enters a, e, i, o or u then your program should display a message
+indicating that the entered letter is a vowel. If the user enters y then your program
+should display a message indicating that sometimes y is a vowel, and sometimes y is
+a consonant. Otherwise your program should display a message indicating that the
+letter is a consonant.
+
+user_input=input("Enter the letter :")
+vowel=["a","e","i","o","u"]
+first=user_input[0]
+def if_yes():
+    for i in vowel:
+        if first==i:
+            print(f"{user_input} it is vowels ")
+        else:
+            print(f"{user_input} it is not vowels ")
+            break
+if_yes()
+
+
+#######################################################################################
+
+2. Write a program that determines the name of a shape from its number of sides. Read
+the number of sides from the user and then report the appropriate name as part of
+a meaningful message. Your program should support shapes with anywhere from 3
+up to (and including) 10 sides. If a number of sides outside of this range is entered
+then your program should display an appropriate error message.
+
+def shape_name(num_sides):
+    if num_sides == 3:
+        return "triangle"
+    elif num_sides == 4:
+        return "square"
+    elif num_sides == 5:
+        return "pentagon"
+    elif num_sides == 6:
+        return "hexagon"
+    elif num_sides == 7:
+        return "heptagon"
+    elif num_sides == 8:
+        return "octagon"
+    elif num_sides == 9:
+        return "nonagon"
+    elif num_sides == 10:
+        return "decagon"
+    else:
+        return "you entered wrong input"
+
+
+num = int(input("enter the sides"))
+shape_name(num)
+
+
+######################################################################################33
+
+
+3. The length of a month varies from 28 to 31 days. In this exercise you will create
+a program that reads the name of a month from the user as a string. Then your
+program should display the number of days in that month. Display “28 or 29 days”
+for February so that leap years are addressed.
+
+
+def days_in_month(month):
+    month_days = {
+        "January": 31,
+        "February": "28 or 29",
+        "March": 31,
+        "April": 30,
+        "May": 31,
+        "June": 30,
+        "July": 31,
+        "August": 31,
+        "September": 30,
+        "October": 31,
+        "November": 30,
+        "December": 31
+    }
+
+    return month_days.get(month, "Invalid month")
+
+def main():
+    month = input("Enter the name of the month: ")
+    days = days_in_month(month)
+    print(f"The number of days in {month} is {days}.")
+
+if __name__ == "__main__":
+    main()
+
+
+#######################################################################################################################  
+
+4. A triangle can be classified based on the lengths of its sides as equilateral, isosceles
+or scalene. All 3 sides of an equilateral triangle have the same length. An isosceles
+triangle has two sides that are the same length, and a third side that is a different
+length. If all of the sides have different lengths then the triangle is scalene.
+Write a program that reads the lengths of 3 sides of a triangle from the user.
+Display a message indicating the type of the triangle.
+
+    
+def triangle_type(side1, side2, side3):
+    if side1 == side2 == side3:
+        return "Equilateral"
+    elif side1 == side2 or side1 == side3 or side2 == side3:
+        return "Isosceles"
+    else:
+        return "Scalene"
+
+def main():
+    side1 = float(input("Enter the length of the first side of the triangle: "))
+    side2 = float(input("Enter the length of the second side of the triangle: "))
+    side3 = float(input("Enter the length of the third side of the triangle: "))
+
+    triangle = triangle_type(side1, side2, side3)
+    print(f"The triangle with side lengths {side1}, {side2}, {side3} is {triangle}.")
+
+if __name__ == "__main__":
+    main()
+
+
+
+
+###########################################################################################################
+
+5.The year is divided into three seasons: summer, rainy and winter. While the
+exact dates that the seasons change vary a little bit from year to year because of the
+way that the calendar is constructed, Write a program to display the season if date is given.
+
+
+
+def get_season(month, day):
+    if month in (3, 4, 5):
+        return "Spring"
+    elif month in (6, 7, 8):
+        return "Summer"
+    elif month in (9, 10, 11):
+        return "Autumn"
+    else:
+        return "Winter"
+
+def main():
+    while True:
+        try:
+            date = input("Enter the date in format MM/DD: ")
+            month, day = map(int, date.split('/'))
+            if 1 <= month <= 12 and 1 <= day <= 31:
+                season = get_season(month, day)
+                print(f"The season for {date} is {season}.")
+                break
+            else:
+                print("Invalid date. Please enter a valid date.")
+        except ValueError:
+            print("Invalid input. Please enter date in MM/DD format.")
+
+if __name__ == "__main__":
+    main()
+
+"""
