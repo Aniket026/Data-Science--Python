@@ -1,0 +1,78 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Mar 29 08:22:03 2024
+
+@author: aniket
+
+
+class Human:
+    def __init__(self,n,o):
+        self.name=n
+        self.occupation=o
+    def do_work(self):
+        if self.occupation=="tennis":
+            print(self.name,"Player of tennis")
+        elif self.occupation=="Actor":
+            print(self.name,"it ia Actor")
+    def speaks(self):
+        print(self.name,"Say how are you")
+        
+a=Human("Aniket","tennis")
+b=Human("Aniket","Actor")
+a.do_work()
+a.speaks()
+b.do_work()
+b.speaks()
+
+
+####################################################
+
+
+#Inheritance 
+
+class Vehicle:
+    def genaral_usage(self):
+        print("general use : transporation ")
+class Car(Vehicle):
+    def __init__(self):
+        print("i am car ")
+        self.wheels=4
+        self.has_roof=True
+        
+    def specification_use(self):
+        self.genaral_usage()
+        print("use: drive, vacation with family")
+        
+class Motor(Vehicle):
+    def __init__(self):
+        print("i am motar cycle")
+        self.wheels=2
+        self.has_roof=False
+        
+    def specification_use(self):
+         self.genaral_usage()
+         print("use:  racing")
+        
+c=Car()
+m=Motor()
+c.specification_use()
+m.specification_use()
+
+"""
+class Father():
+    def skills(self):
+        print("I like garending")
+class Mother():
+    def skills(self):
+        print("I like cooking")
+class Child (Father,Mother):
+    def skills(self):
+      Father.skills(self)
+      Mother.skills(self)
+      print("I like moves")
+c=Child()
+c.skills()
+
+
+
+
