@@ -1,0 +1,28 @@
+
+import matplotlib.pyplot as plt
+
+song_100=pd.Series([22.0,99.0,88.0,None], index=["x","y","z","t"] , name="Aniket")
+song_66=pd.Series([30.0,120.0,6.0,None], index=["a","b","c","d"] , name="Rushi")
+
+fig=plt.figure()
+song_66.plot()
+plt.legend()
+
+############################################################
+
+#bar graph
+
+song_66.plot(kind="bar")
+song_100.plot(kind="bar" ,color="r")
+plt.legend()
+
+
+###############################################################
+
+#histogram
+
+import numpy as np
+data=pd.Series(np.random.randn(500),name="500_random")
+fig=plt.figure()
+ax=fig.add_subplot(111)
+data.hist()
