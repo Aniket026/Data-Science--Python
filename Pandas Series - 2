@@ -1,0 +1,61 @@
+#Convert Types
+#Srting use .astype(str)
+#numeric use pd.to_numeric
+#integer use .astype(int)
+#note that this will fail with NAN
+#datetime use pd.to_datetime
+
+song_66=pd.Series([3.0,9.0,6.0,None], index=["a","b","c","d"] , name="rushi")
+song_66.dtypes #property of checking Type od series
+
+pd.to_numeric(song_66.apply(str))
+#there will be error
+
+pd.to_numeric(song_66.astype(str) , errors="coerce")
+#if you pass errors="coerce"
+#we can see that it supports many formats
+song_66.dtypes
+
+
+
+###################################################
+
+#Dealing with None
+#the fillna method will replace them inro gvan value
+
+song_66=song_66.fillna(-1)
+song_66=song_66.astype(int)
+song_66.dtype
+
+
+######################################################
+
+#Dropna()
+#Nan values can drop using .dropna()
+
+sa=pd.Series([1,2,3,None],index=("a","b","c","d") ,name="aniket")
+sa
+sa=sa.dropna()
+sa
+
+######################################################
+
+
+#append,combining  and joining two seriee
+#use pd.concat
+
+song_66=pd.Series([3.0,9.0,6.0,None], index=["a","b","c","d"] , name="rushi")
+song_100=pd.Series([22.0,99.0,88.0,None], index=["x","y","z","t"] , name="Aniket")
+song=pd.concat([song_66,song_100])
+song
+
+
+
+################################################################
+#plotting Series
+#if you import module inside package then write[mathplotlib.pyplot] 
+#by defult color is blue
+
+
+
+
