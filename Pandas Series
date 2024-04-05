@@ -1,0 +1,86 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Apr  2 08:23:10 2024
+
+@author: aniket
+
+"""
+
+#pandas : series
+# A series is used to model one dimentional data
+#similar to list in python
+#the series object also has a few more bits of data ,including an INDEX and NAME
+#index is not form in float it is always in int.
+
+import pandas as pd
+song1=pd.Series([1,2,3,4,5,6,7,8,9,10],name="counts")
+song1.index
+#it give index as int by defult.
+
+
+song2=pd.Series([1,2,3,4,5,6],name="counts",
+                index=["a","b","c","d","f","g"])
+song2.index
+#you can change index type as a string and date
+
+
+#############################################
+
+import pandas as pd
+f1=pd.read_csv("age.csv")
+f1
+
+df=pd.read_excel("C:/1-Python/Bahaman.xlsx")
+df
+################################################
+
+
+#NAN,NULL,None,nan are synonyms
+#the Series object behaves similarly to a numpy array
+import numpy as np
+song3=pd.Series([1,2,3,4,5,6],name="counts",
+                index=["a","b","c","d","f","g"])
+numpy_ser=np.array([123,45,788,9])
+song3[1]
+numpy_ser[1]
+song3.mean()
+numpy_ser.mean()
+
+
+#####################################################
+
+#the pands series data structure
+#support the besic operations
+#operations=create , update,read and delete
+#Creation
+
+g=pd.Series([1,2,3,4,5] ,index=['22','33','44','55','22'],name="my_series")
+g
+
+
+#reading Series
+g['22']   #index in Series is in form of straing
+
+#we can iterate over data in a series as well .when iterating over a series 
+for item in g:
+    print(item)
+    
+    
+#updating 
+#for updating series we use index lable. and standerd index Assignment operation
+
+g['22']=98
+
+
+##################################################
+
+#deletion
+
+s=pd.Series([1,2,3],index=[5,6,7])
+del s[5]
+s
+
+
+###################################################
+
+
