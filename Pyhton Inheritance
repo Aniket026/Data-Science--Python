@@ -1,0 +1,187 @@
+
+#single inheritance 
+'''
+class Adder:
+    def add(self, a,b):
+        return a +b
+
+class AdderOfTwoNumbers(Adder):
+    def __init__(self):
+        self.a=int(input("Entyer a"))
+        self.b=int(input("Entyer b"))
+      
+    
+    def display_sum(self):
+        print("The sum of", self.a, "and", self.b, "is:", self.add(self.a, self.b))
+
+
+addition = AdderOfTwoNumbers()
+
+addition.display_sum()  
+
+######################################################
+
+
+#Multiple Inheritance
+
+
+class Adder:
+    def add(self, a,b):
+         c= a +b
+         return c
+    
+class divid:
+    def divid(self,c,b):
+        return c/b
+
+class AdderOfTwoNumbers(Adder,divid):
+    def __init__(self):
+        self.a=int(input("Enter a : "))
+        self.b=int(input("Enter b : "))
+      
+    
+    def display_sum(self):
+        print("The sum of", self.a, "and", self.b, "is:", self.add(self.a, self.b))
+        print("Division is ",self.divid(self.a,self.b))
+
+addition = AdderOfTwoNumbers()
+
+addition.display_sum() 
+
+
+# Python program to demonstrate
+# multiple inheritance
+
+# Base class1
+class Mother:
+	mothername = ""
+
+	def mother(self):
+		print(self.mothername)
+
+# Base class2
+
+
+class Father:
+	fathername = "nn"
+
+	def father(self):
+		print(self.fathername)
+
+# Derived class
+
+
+class Son(Mother, Father):
+	def parents(self):
+		print("Father :", self.fathername)
+		print("Mother :", self.mothername)
+
+s1 = Son()
+s1.fathername = "RAM"
+s1.mothername = "SITA"
+
+m=Mother()
+m.mother()'
+
+#######################
+
+
+class Human:
+    def __init__(self):
+        self.name="aniket"
+    def eat(self):
+        print("human can eat")
+    def walk(self):
+        print("Human can walk")
+class Male:
+    def walk(self):
+        print("male cam walk")
+    
+class new(Human,Male):
+    pass
+obj1=new()
+obj1.walk()
+Male.walk(obj1)
+
+a=new.mro()
+print(a)
+print(obj1.name)
+
+#################################################
+
+
+#multilevel inheritance
+
+class Human:
+    def eat(self):
+        print("human")
+
+class Male(Human):
+    def work(self):
+        print("work")
+
+class Boy(Male):
+    def work(self):
+        print("boy work")
+        
+boy1=Boy()
+boy1.eat()
+boy1.work()
+Male.work(boy1)
+
+#####################################################
+
+
+#Hierarchical Inheritance  
+
+
+#parent class
+class Parent:
+    def fun1(self):
+        print(“Hey there, you are in the parent class”)
+ 
+#child class 1
+class child1(Parent):
+    def fun2(self):
+        print(“Hey there, you are in the child class 1”)
+
+#child class 2 
+class child2(Parent):
+    def fun3(self):
+        print(“Hey there, you are in the child class 2”)
+ 
+#child class 3
+class child3(Parent):
+    def fun4(self):
+        print(“Hey there, you are in the child class 3”)
+ 
+# main program
+child_obj1 = child3()
+child_obj2 = child2()
+child_obj3 = child1()
+child_obj1.fun1()
+child_obj1.fun4()
+child_obj2.fun1()
+child_obj2.fun3()
+child_obj3.fun1()
+child_obj3.fun2()
+
+
+##################################################
+
+#Hybrid
+
+
+class A:
+def fun1(self):
+print(“Hey there, you are in class A”)class B(A):
+def fun2(self):
+print(“Hey there, you are in class B”)class C(A):
+def fun3(self):
+print(“Hey there, you are in class C”)class D(C,A): #line 13
+def fun4(self):
+print(“Hey there, you are in the class D”)#main program
+ref = D()
+ref.fun4()
+ref.fun3()
+ref.fun1()
