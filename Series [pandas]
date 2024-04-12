@@ -1,0 +1,174 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Apr  2 08:23:10 2024
+
+@author: aniket
+
+"""
+
+#pandas : series
+# A series is used to model one dimentional data
+#similar to list in python
+#the series object also has a few more bits of data ,including an INDEX and NAME
+#index is not form in float it is always in int.
+
+import pandas as pd
+song1=pd.Series([1,2,3,4,5,6,7,8,9,10],name="counts")
+song1.index
+#it give index as int by defult.
+
+
+song2=pd.Series([1,2,3,4,5,6],name="counts",
+                index=["a","b","c","d","f","g"])
+song2.index
+#you can change index type as a string and date
+
+
+#############################################
+
+import pandas as pd
+f1=pd.read_csv("age.csv")
+f1
+
+df=pd.read_excel("C:/1-Python/Bahaman.xlsx")
+df
+################################################
+
+
+#NAN,NULL,None,nan are synonyms
+#the Series object behaves similarly to a numpy array
+import numpy as np
+song3=pd.Series([1,2,3,4,5,6],name="counts",
+                index=["a","b","c","d","f","g"])
+numpy_ser=np.array([123,45,788,9])
+song3[1]
+numpy_ser[1]
+song3.mean()
+numpy_ser.mean()
+
+
+#####################################################
+
+#the pands series data structure
+#support the besic operations
+#operations=create , update,read and delete
+#Creation
+
+g=pd.Series([1,2,3,4,5] ,index=['22','33','44','55','22'],name="my_series")
+g
+
+
+#reading Series
+g['22']   #index in Series is in form of straing
+
+#we can iterate over data in a series as well .when iterating over a series 
+for item in g:
+    print(item)
+    
+    
+#updating 
+#for updating series we use index lable. and standerd index Assignment operation
+
+g['22']=98
+
+
+##################################################
+
+#deletion
+
+s=pd.Series([1,2,3],index=['a',6,7])
+del s['a']
+s
+
+
+###################################################
+
+#Convert Types
+#Srting use .astype(str)
+#numeric use pd.to_numeric
+#integer use .astype(int)
+#note that this will fail with NAN
+#datetime use pd.to_datetime
+
+song_66=pd.Series([3.0,9.0,6.0,None], index=["a","b","c","d"] , name="rushi")
+song_66.dtypes #property of checking Type od series
+
+pd.to_numeric(song_66.apply(str))
+#there will be error
+
+pd.to_numeric(song_66.astype(str) , errors="coerce")
+#if you pass errors="coerce"
+#we can see that it supports many formats
+song_66.dtypes
+
+
+
+###################################################
+
+#Dealing with None
+#the fillna method will replace them inro gvan value
+
+song_66=song_66.fillna(-1)
+song_66=song_66.astype(int)
+song_66.dtype
+
+
+######################################################
+
+#Dropna()
+#Nan values can drop using .dropna()
+
+sa=pd.Series([1,2,3,None],index=("a","b","c","d") ,name="aniket")
+sa
+sa=sa.dropna()
+sa
+
+######################################################
+
+
+#append,combining  and joining two seriee
+#use pd.concat
+
+song_66=pd.Series([3.0,9.0,6.0,None], index=["a","b","c","d"] , name="rushi")
+song_100=pd.Series([22.0,99.0,88.0,None], index=["x","y","z","t"] , name="Aniket")
+song=pd.concat([song_66,song_100])
+song
+
+
+
+################################################################
+#plotting Series
+#if you import module inside package then write[mathplotlib.pyplot] 
+#by defult color is blue
+
+
+import matplotlib.pyplot as plt
+
+song_100=pd.Series([22.0,99.0,88.0,None], index=["x","y","z","t"] , name="Aniket")
+song_66=pd.Series([30.0,120.0,6.0,None], index=["a","b","c","d"] , name="Rushi")
+
+fig=plt.figure()
+song_66.plot()
+plt.legend()
+
+############################################################
+
+#bar graph
+
+song_66.plot(kind="bar")
+song_100.plot(kind="bar" ,color="r")
+plt.legend()
+
+
+###############################################################
+
+#histogram
+
+import numpy as np
+data=pd.Series(np.random.randn(5000),name="500_random")
+fig=plt.figure()
+ax=fig.add_subplot(111)
+data.hist()
+
+
+
