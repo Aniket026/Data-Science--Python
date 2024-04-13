@@ -1,0 +1,127 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Apr  4 08:16:42 2024
+
+@author: aniket
+
+"""
+#Pandas data frame ?
+#two dimensional data structure
+#an immutale .hetreogeneous tabular
+#data structure with labeled axes rows and columns
+
+import pandas as pd
+
+
+#create using constructor
+#create pandas Dataframe from list
+
+technologies=[["Spark",20000,"30days"],["pandas",20000,"40days"]]
+df=pd.DataFrame(technologies)
+print(df)
+
+
+########################################################################
+
+#column name and row name  for DataFrame
+#by defult it gives incremental order  of number 
+
+column_name=["courses","fee","duration"]
+row_lable=["a","b"]
+df=pd.DataFrame(technologies,columns=column_name,index=row_lable)
+print(df)
+
+
+######################################################################
+
+df.dtypes
+
+######################################################################
+#you can also assing the data type to columns.
+
+tech={
+      'courses':["python","java","c++","DBMS","Pandas","oracal"],
+      'fee':[20000,30000,23000,40000,60000,23000],
+      'duration':["30days","40days","55days","25days","90days","45days"],
+      "Discount":[2.5,3.6,4.4,5.5,6.7,7.3]}
+index_name=["a","b","c","d","e","f"]
+dd=pd.DataFrame(tech,index=index_name)
+print(dd)
+dd.dtypes
+##########################################################################
+
+#converting data type of columns :
+df2=dd.convert_dtypes(str) #object=> string
+print(df2.dtypes)
+
+
+
+#change all columns into same type :
+df=df.astype(float)  #string=>object
+print(df.dtypes)
+
+
+#changeing one or more columns
+df=df.astype({"fee":int,"Discount":float})
+print(df.dtypes)
+
+
+####################################################################
+#converting Data types for all Columns n a list
+
+df=pd.DataFrame(tech)
+df.dtypes
+cols=["fee","Discount"]
+df[cols]=df[cols].astype('float')
+df.dtypes
+
+
+
+################################################################
+#ignores errors
+df=df.astype({"courses":int},errors='ignore')
+df.dtypes
+
+
+################################################################
+#converts feed column to numeric type using  [ to_numaric ] :'
+#in this methon ot convert into float form not in int form
+
+df=df.astype(str)
+print(df.dtypes)
+df['Discount']=pd.to_numeric(df['Discount'])
+df.dtypes
+
+
+################################################################
+
+
+new_tech={
+      'courses':["python","java","c++","DBMS","Pandas","oracal"],
+      'fee':[20000,30000,23000,40000,60000,23000],
+      'duration':["30days","40days","55days","25days","90days","45days"],
+      "Discount":[2.5,3.6,4.4,5.5,6.7,7.3]}
+
+################################################################
+
+#to convert Data Frame into .csv file
+
+df.to_csv("data_frame.csv")
+
+
+################################################################
+
+#pandas Data Frame= basic Operations
+#explicit row name 
+
+import pandas as pd
+import numpy as np
+
+new_tech1={
+      'courses':["python","java","c++","DBMS",None,"Pandas","oracal"],
+      'fee':[20000,30000,23000,40000,60000,np.nan,23000],
+      'duration':["30days","40days","55days","25days","90days"," ","45days"],
+      "Discount":[2.5,3.6,4.4,5.5,6.7,None,7.3]}
+row_labe=['r1','r2','r3','r4','r5','r6','r7']
+df=pd.DataFrame(new_tech1,index=row_labe)
+print(df)
