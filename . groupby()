@@ -1,0 +1,27 @@
+#using Numpy.square() method
+#using numpy.square() and [] opeartor
+
+df["A"]=np.square(df["A"])
+df
+
+######################################
+
+#Pandas groupby() with operator
+
+
+tech={
+      'courses':["python","java","c++","python","Pandas","oracal","python","java","c++","python","Pandas","oracal"],
+      'fee':[20000,30000,23000,40000,60000,23000,20000,30000,23000,40000,60000,23000],
+      'duration':["30days","40days","55days","25days","90days","45days","30days","40days","55days","25days","90days","45days"],
+      "Discount":[2.5,3.6,4.4,5.5,6.7,7.3,2.5,3.6,4.4,5.5,6.7,7.3]}
+df=pd.DataFrame(tech)
+
+
+#use groupby() to compute the sum 
+
+df2=df.groupby(["courses"]).sum()
+df2
+
+
+df2=df.groupby(["courses","fee"]).sum()
+df2
