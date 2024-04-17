@@ -1,0 +1,178 @@
+# -*- coding: utf-8 -*-
+"""
+
+Created on Mon Apr 15 08:08:14 2024
+
+@author : aniket
+
+"""
+
+#how many number of 
+
+import pandas as pd
+
+df1=pd.read_csv('final_dataset.csv')
+
+df=pd.DataFrame(df1)
+df
+
+#finding number of rows and column in DataFrame
+
+row_count=len(df.index)       #count number of rows
+row_count
+
+row_count=len(df.axes[0])     #count number of rows
+row_count
+
+column_count=len(df.axes[1])  #count number of column
+column_count
+
+
+######################################################
+
+rows_count=df.shape[0]     #count number of rows
+rows_count
+
+column_count=df.shape[1]   #count number of column
+column_count
+
+
+######################################################
+
+import pandas as pd
+import numpy as np
+
+#using apply() to apply function add column
+
+data={
+      "A":[1,2,3],
+      "B":[4,5,6],
+      "C":[7,8,9]
+      }
+df=pd.DataFrame(data)
+
+
+#it can add 100 to  hole Dataframe 
+def add(x):
+    return x+100
+
+dff=df.apply(add)
+dff
+
+
+dff=((df.A).apply(add))  #using apply function to single column
+dff
+ 
+
+df["B"]=df["B"].apply(add)
+df["B"]
+
+
+df[["B","C"]]=df[["B","C"]].apply(add) 
+df
+
+########################################################
+
+#apply lambda function to each column
+
+df2=df.apply(lambda x :x+10)
+df2
+
+
+#to single column
+
+
+df2["A"]=df["A"].apply(lambda x :x/3)
+df2["A"]
+
+########################################################
+
+#transform
+
+df=pd.DataFrame(data)
+def add_1000(x):
+    return x+1000
+
+#to all column
+
+df=df.transform(add_1000)
+df
+
+#single column
+
+df2["A"]=df["A"].transform(lambda x :x/3)
+df2["A"]
+
+
+#############################################
+
+
+
+#using .map() for single column
+
+df=pd.DataFrame(data)
+
+df["A"]=df["A"].map(lambda A:A/2)
+print(df)
+
+
+#using .map() for all column
+
+df=df.map(lambda x:x/2)
+print(df)
+
+############################################
+
+#using Numpy function on single Column
+#using DataFrame .apply & [] operator 
+
+import numpy as np
+
+df=pd.DataFrame(data)
+df["A"]=df["A"].apply(np.square)
+df
+
+##########################
+
+#using Numpy.square() method
+#using numpy.square() and [] opeartor
+
+df["A"]=np.square(df["A"])
+df
+
+######################################
+
+#Pandas groupby() with operator
+
+
+tech={
+      'courses':["python","java","c++","python","Pandas","oracal","python","java","c++","python","Pandas","oracal"],
+      'fee':[20000,30000,23000,40000,60000,23000,20000,30000,23000,40000,60000,23000],
+      'duration':["30days","40days","55days","25days","90days","45days","30days","40days","55days","25days","90days","45days"],
+      "Discount":[2.5,3.6,4.4,5.5,6.7,7.3,2.5,3.6,4.4,5.5,6.7,7.3]}
+df=pd.DataFrame(tech)
+
+
+#use groupby() to compute the sum 
+
+df2=df.groupby(["courses"]).sum()
+df2
+
+
+df2=df.groupby(["courses","fee"]).sum()
+df2
+
+
+# -*- coding: utf-8 -*-
+"""
+
+Created on Mon Apr 16 08:08:14 2024
+
+@author : aniket
+
+"""
+
+
+
+
+
