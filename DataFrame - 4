@@ -1,0 +1,41 @@
+
+#Pandas join
+#by default left join
+
+new_tech={
+      'courses':["python","java","c++","DBMS","Pandas","oracal"],
+      'fee':[20000,30000,23000,40000,60000,23000],
+      'duration':["30days","40days","55days","25days","90days","45days"],
+      "Discount":[2.5,3.6,4.4,5.5,6.7,7.3]
+      }
+index_name=["a","b","c","d","e","f"]
+
+
+new_tech2={
+    'courses':["python","java","c++","DB","Pand","or"],
+    'fee':[20000,30000,23000,40000,600,230]
+      }
+index_name2=["a","z","c","i","e","l"]
+
+
+df1=pd.DataFrame(new_tech,index=index_name)
+df2=pd.DataFrame(new_tech2,index=index_name2)
+
+
+
+
+#left join
+
+df3=df1.join(df2,lsuffix="_left",rsuffix="_right")
+df3
+
+
+
+#inner join
+
+df4=df1.join(df2,lsuffix="_left",rsuffix="_right",how="inner")
+df4
+
+#
+df5=df1.join(df2,lsuffix="_left",rsuffix="_right",how="right")
+df5
