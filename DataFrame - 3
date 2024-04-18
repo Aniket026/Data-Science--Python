@@ -1,0 +1,126 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Apr 16 08:36:46 2024
+
+@author: anike
+"""
+
+
+import pandas as pd
+import numpy as np
+
+new_tech={
+      'courses':["python","java","c++","DBMS","Pandas","oracal"],
+      'fee':[20000,30000,23000,40000,60000,23000],
+      'duration':["30days","40days","55days","25days","90days","45days"],
+      "Discount":[2.5,3.6,4.4,5.5,6.7,7.3]}
+df=pd.DataFrame(new_tech)
+
+
+
+#######################################################
+
+# .sample(frac=n)
+#Pandas Shuffle DataFrame Rows
+#shuffle the DataFrame rows & return all rows
+#this procces using Optimazation
+#it take random number of index
+
+df1=df.sample(frac=1)  #it take 10 rows mence all 
+                       #1=100% ,0.5=50%
+print(df1)
+
+df2=df.sample(frac=0.50)    #it take random 5 rows
+print(df2)
+
+
+##########################################################
+
+# .reset_index()
+
+#it create new index from zero
+#it give old index and new index
+
+df1=df.sample(frac=1).reset_index()
+df1
+
+
+#it give only new index from zero
+df1=df.sample(frac=1).reset_index(drop=True)
+df1
+
+###########################################################
+
+
+new_tech={
+      'courses':["python","java","c++","DBMS","Pandas","oracal"],
+      'fee':[20000,30000,23000,40000,60000,23000],
+      'duration':["30days","40days","55days","25days","90days","45days"],
+      "Discount":[2.5,3.6,4.4,5.5,6.7,7.3]
+      }
+index_name=["a","b","c","d","e","f"]
+
+
+new_tech2={
+    'courses':["python","java","c++","DB","Pand","or"],
+    'fee':[20000,30000,23000,40000,600,230]
+      }
+index_name2=["a","z","c","i","e","l"]
+
+
+df1=pd.DataFrame(new_tech,index=index_name)
+df2=pd.DataFrame(new_tech2,index=index_name2)
+#using pandas .mearge()
+
+df7=pd.merge(df1, df2)
+df7
+
+
+df8=df1.merge(df2)
+df8
+
+###############################################################
+
+
+#pandas .concat() to connect twp DataFrame
+#concat verticaly
+
+data=[df1,df2]
+df9=pd.concat(data)
+df9
+
+
+################################################################
+
+#concat multiple DataFrame using .concat()
+
+
+new_tech={
+      'courses':["python","java","c++","DBMS","Pandas","oracal"],
+      'fee':[20000,30000,23000,40000,60000,23000],
+      }
+index_name=["a","b","c","d","e","f"]
+
+
+
+new_tech2={
+    'courses':["python","java","c++","DB","Pand","or"],
+    'fee':[20000,30000,23000,40000,600,230]
+      }
+index_name2=["a","z","c","i","e","l"]
+
+
+
+new_tech3={
+    'courses':["python","java","c++","DB","Pand","or"],
+    'fee':[20000,30000,23000,40000,600,230]
+      }
+index_name2=["a","z","c","i","e","l"]
+
+
+df1=pd.DataFrame(new_tech,index=index_name)
+df2=pd.DataFrame(new_tech2,index=index_name2)
+df3=pd.DataFrame(new_tech3,index=index_name2)
+
+df10=pd.concat([df1,df2,df3])
+df10
