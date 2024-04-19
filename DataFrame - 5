@@ -1,0 +1,59 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Apr 18 08:08:45 2024
+
+@author: aniket
+
+"""
+#write DataFarme to Excel file
+import pandas as pd
+import numpy as np
+
+df=pd.read_excel("AWS Cloud and DevOps Training (Responses).xlsx")
+print(df)
+
+
+
+new_tech={
+      'Courses':["python","java","c++","DBMS","Pandas","oracal"],
+      'fee':[20000,30000,23000,40000,60000,23000],
+      'duration':["30days","40days","55days","25days","90days","45days"],
+      "Discount":[2.5,3.6,4.4,5.5,6.7,7.3]}
+df=pd.DataFrame(new_tech)
+
+
+######################################
+#convert DataFrame Datatype into array
+
+col_list=df.Courses.values
+print(col_list)
+print(type(col_list))
+
+#####################################################
+
+#using Series .values.tolist()
+
+col_list=df['Courses'].values.tolist()
+print(col_list)
+print(type(col_list))
+
+
+#####################################################
+
+#convert Datatype into list
+
+col_list=list(df['Courses'])
+col_list
+print(type(col_list))
+
+
+######################################################
+
+#convert DataFrame Datatype into array
+
+col_list=df['Courses'].to_numpy()
+print(col_list)
+print(type(col_list))
+
+######################################################
+
