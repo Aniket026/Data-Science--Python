@@ -1,0 +1,36 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Jun 19 19:29:49 2024
+
+@author: anike
+"""
+
+item=3
+item2=4
+myorder=("i want item {} and item no {}")
+print(myorder.format(item, item2))
+
+item=3
+item2=4
+myorder=("i want item {} and item no {}")
+print(myorder.format( item2,item))
+
+item=3
+item2=4
+myorder=("i want item {0} and item no {1}")
+print(myorder.format( item2,item))
+
+
+item=3
+item2=4
+myorder=("i want item {1} and item no {0}")
+print(myorder.format( item2,item))
+
+
+
+
+
+
+
+
+
