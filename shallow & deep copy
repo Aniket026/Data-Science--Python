@@ -1,0 +1,191 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Jun 23 11:31:53 2024
+
+@author: aniket 
+
+"""
+
+list1=[1,2,3,4,5,6]
+list2=list1
+list2[1]=9
+print(list1)
+print(list2)
+
+'''
+[1, 9, 3, 4, 5, 6]
+[1, 9, 3, 4, 5, 6]
+'''
+
+
+#-----------------------------------
+#shallow copy
+
+'''
+A shallow copy in Python creates a new object that is a 
+copy of the original object, but it does not create copies
+ of the objects contained within the original object. 
+ Instead, it inserts references into the new object that
+ point to the same objects contained in the original object.
+ This means that changes made to the contents of these objects 
+ will be reflected in both the original and the copied object.
+
+'''
+
+list1=[1,2,3,4,5,6]
+list2=list1.copy()
+list2[1]=999
+print(list1)
+print(list2)
+
+'''
+[1, 2, 3, 4, 5, 6]
+[1, 999, 3, 4, 5, 6]
+
+'''
+#---------------
+
+import copy
+
+original_list = [1, 2, [3, 4], 5]
+shallow_copied_list = copy.copy(original_list)
+
+print("Original list:", original_list)
+print("Shallow copied list:", shallow_copied_list)
+
+# Modify the nested list
+original_list[2][0] = 99
+
+print("\nAfter modifying the nested list in the original list:")
+print("Original list:", original_list)
+print("Shallow copied list:", shallow_copied_list)
+
+
+'''
+After modifying the nested list in the original list:
+Original list:       [1, 2, [99, 4], 5]
+Shallow copied list: [1, 2, [99, 4], 5]
+
+'''
+#-----------------
+
+import copy
+
+class MyClass:
+    def __init__(self, value):
+        self.value = value
+
+original_obj = MyClass([1, 2, 3])
+shallow_copied_obj = copy.copy(original_obj)
+
+print("Original object value:", original_obj.value)
+print("Shallow copied object value:", shallow_copied_obj.value)
+
+
+original_obj.value[0] = 99
+
+print("\nAfter modifying the list in the original object's attribute:")
+print("Original object value:", original_obj.value)
+print("Shallow copied object value:", shallow_copied_obj.value)
+
+'''
+After modifying the list in the original object's attribute:
+Original object value: [99, 2, 3]
+Shallow copied object value: [99, 2, 3]
+
+'''
+
+
+#----------------------------------------------------------------------
+
+#deep copy :
+    
+'''
+
+In Python, a deep copy refers to creating a new object that is a copy of 
+an original object, along with recursively copying any objects found in 
+the original. This means that modifying the new, deep-copied object does
+not affect the original object, and vice versa.
+
+To understand deep copy, it's helpful to compare it to a shallow copy. A
+shallow copy creates a new object but inserts references into it to the
+objects found in the original. Thus, changes to mutable objects inside 
+the new object affect the original object.
+
+'''
+
+
+list1=[1,2,[1,2,3]]
+
+deep_copied_list=copy.deepcopy(list1)
+
+deep_copied_list[2][0] = 99
+
+print(list1)
+
+print(deep_copied_list)
+
+
+'''
+[1, 2, [1, 2, 3]]
+[1, 2, [99, 2, 3]]
+
+'''
+
+
+#------------------
+
+original_list = [1, 2, [3, 4]]
+deep_copied_list = copy.deepcopy(original_list)
+
+
+deep_copied_list[2][0] = 99
+
+print("Original List:", original_list)       # Output: [1, 2, [3, 4]]
+print("Deep Copied List:", deep_copied_list) # Output: [1, 2, [99, 4]]
+
+'''
+Original List: [1, 2, [3, 4]]
+Deep Copied List: [1, 2, [99, 4]]
+
+'''
+
+#-------------------
+
+import copy
+
+original_list = [1, 2, [3, 4]]
+deep_copied_list = copy.deepcopy(original_list)
+
+
+original_list[2][0] = 'a'
+
+print("Original list:", original_list)       
+print("Deep copied list:", deep_copied_list)  
+
+'''
+
+Original list: [1, 2, ['a', 4]]
+Deep copied list: [1, 2, [3, 4]]
+
+'''
+
+#---------------
+
+import copy
+
+original_dict = {'a': 1, 'b': {'c': 2, 'd': 3}}
+deep_copied_dict = copy.deepcopy(original_dict)
+
+
+original_dict['b']['c'] = 'changed'
+
+print("Original dictionary:", original_dict)      
+print("Deep copied dictionary:", deep_copied_dict) 
+
+'''
+
+Original dictionary: {'a': 1, 'b': {'c': 'changed', 'd': 3}}
+Deep copied dictionary: {'a': 1, 'b': {'c': 2, 'd': 3}}
+
+'''
