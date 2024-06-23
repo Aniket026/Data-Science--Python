@@ -1,0 +1,277 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Jun 23 09:40:45 2024
+
+@author: aniket
+"""
+
+
+def even(n):
+    if n%2==0:
+        yield "even"
+    else:
+        yield "odd"
+
+print(next(even(5)))
+
+
+
+def create():
+    i=0
+    while(i<=4):
+        yield i
+        i+=1
+print(create()) 
+     
+'''
+<generator object create at 0x0000013934CB0DC0>
+'''    
+        
+x=create()  
+print(next(x)) #0
+print(next(x)) #1 
+print(next(x)) #2  
+print(list(x)) #[[3, 4]]
+        
+
+
+
+def simple_range(start, end):
+    current = start
+    while current < end:
+        yield current
+        current += 1
+
+for num in simple_range(1, 5):
+    print(num)
+    
+'''
+1
+2
+3
+4
+'''
+
+
+#Fibonacci Sequence Generator
+
+def fibonacci():
+    a, b = 0, 1
+    while True:
+        yield a
+        a, b = b, a + b
+
+fib = fibonacci()
+for _ in range(10):
+    print(next(fib))
+
+'''
+0
+1
+1
+2
+3
+5
+8
+13
+21
+34
+
+'''
+
+
+
+def is_prime(num):
+    if num < 2:
+        return False
+    for i in range(2, int(num**0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
+
+def prime_numbers():
+    num = 2
+    while True:
+        if is_prime(num):
+            yield num
+        num += 1
+
+primes = prime_numbers()
+for _ in range(10):
+    print(next(primes))
+    
+    
+'''
+2
+3
+5
+7
+11
+13
+17
+19
+23
+29
+'''
+
+
+
+
+
+import time
+
+def countdown(start):
+    while start > 0:
+        yield start
+        start -= 1
+        time.sleep(1)
+    yield "Time's up!"
+
+
+for count in countdown(5):
+    print(count)
+
+
+
+
+#-----------
+
+def countdown_generator(n):
+    while n > 0:
+        yield n
+        n -= 1
+
+gen = countdown_generator(5)
+for value in gen:
+    print(value)
+    
+'''
+5
+4
+3
+2
+1
+
+'''
+
+
+def simple_generator():
+    yield 1
+    yield 2
+    yield 3
+
+gen = simple_generator()
+for value in gen:
+    print(value)
+'''
+1
+2
+3
+
+'''
+
+
+#chaining generators
+
+#calculate the sum of all even number square
+
+a=[1,2,3,4,5,6,7,8,9]
+
+def even(seq):
+    for i in seq:
+        if i%2==0:
+            yield i
+    
+    
+def square(seq):
+    for i in seq:
+        yield i*i
+    
+def total(seq):
+    total=0
+    for i in seq:
+        total=total+i
+    yield total
+
+x=total(square(even(a)))
+print(next(x))    
+    
+#-----------
+
+def generator1():
+    for i in range(5):
+        yield i
+
+def generator2(input_gen):
+    for value in input_gen:
+        yield value * 2
+
+# Chaining generators
+gen1 = generator1()
+gen2 = generator2(gen1)
+
+for value in gen2:
+    print(value)
+
+'''
+    
+0
+2
+4
+6
+8
+'''
+    
+    
+    
+  
+# Combining and Filtering Data
+#Combining multiple chaining techniques: filtering, transforming, and combining data.
+
+
+
+
+def generator1():
+    for i in range(5):
+        yield i
+
+def generator2():
+    for i in range(5, 10):
+        yield i
+
+def filter_odd(input_gen):
+    for value in input_gen:
+        if value % 2 != 0:
+            yield value
+
+def multiply_by_three(input_gen):
+    for value in input_gen:
+        yield value * 3
+
+def combine_generators(gen1, gen2):
+    yield from gen1
+    yield from gen2
+
+
+gen1 = generator1()
+gen2 = generator2()
+filtered_gen1 = filter_odd(gen1)
+filtered_gen2 = filter_odd(gen2)
+combined_gen = combine_generators(filtered_gen1, filtered_gen2)
+final_gen = multiply_by_three(combined_gen)
+
+for value in final_gen:
+    print(value)
+    
+'''
+3
+9
+15
+21
+27
+
+'''
+    
+    
+    
+        
