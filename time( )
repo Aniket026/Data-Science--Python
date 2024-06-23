@@ -1,0 +1,52 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Jun 23 12:45:15 2024
+
+@author: aniket
+
+"""
+
+
+import copy
+
+import time
+
+start=time.time()
+original_dict = {'a': 1, 'b': {'c': 2, 'd': 3}}
+deep_copied_dict = copy.deepcopy(original_dict)
+
+
+original_dict['b']['c'] = 'changed'
+
+end=time.time()
+
+total=(end-start)*1000
+print(total)
+
+print("Original dictionary:", original_dict)      
+print("Deep copied dictionary:", deep_copied_dict) 
+
+
+
+
+
+
+
+
+
+#Measuring Execution Time
+
+start_time = time.perf_counter()
+
+# Perform some computation or action
+for i in range(1000000):
+    pass
+
+end_time = time.perf_counter()
+elapsed_time = end_time - start_time
+print("Elapsed time:", elapsed_time, "seconds")
+
+'''
+Elapsed time: 0.030201899993699044 seconds
+'''
+
