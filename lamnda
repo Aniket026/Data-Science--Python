@@ -1,3 +1,198 @@
+# Example 1: Simple addition
+add = lambda x, y: x + y
+print(add(2, 3))
+
+# Example 2: Square of a number
+square = lambda x: x ** 2
+print(square(5))
+
+# Example 3: Multiply two numbers
+multiply = lambda x, y: x * y
+print(multiply(4, 5))
+
+# Example 4: Check if a number is even
+is_even = lambda x: x % 2 == 0
+print(is_even(4))
+
+# Example 5: Check if a number is odd
+is_odd = lambda x: x % 2 != 0
+print(is_odd(5))
+
+# Example 6: Find the maximum of two numbers
+maximum = lambda x, y: x if x > y else y
+print(maximum(3, 7))
+
+# Example 7: Concatenate two strings
+concat = lambda s1, s2: s1 + s2
+print(concat("Hello, ", "world!"))
+
+# Example 8: Convert a string to uppercase
+to_upper = lambda s: s.upper()
+print(to_upper("hello"))
+
+# Example 9: Convert a string to lowercase
+to_lower = lambda s: s.lower()
+print(to_lower("HELLO"))
+
+# Example 10: Get the length of a string
+length = lambda s: len(s)
+print(length("hello"))
+
+# Example 11: Filter even numbers from a list
+evens = list(filter(lambda x: x % 2 == 0, range(10)))
+print(evens)
+
+# Example 12: Filter odd numbers from a list
+odds = list(filter(lambda x: x % 2 != 0, range(10)))
+print(odds)
+
+# Example 13: Double each number in a list
+doubles = list(map(lambda x: x * 2, range(10)))
+print(doubles)
+
+# Example 14: Get the first character of a string
+first_char = lambda s: s[0]
+print(first_char("hello"))
+
+# Example 15: Get the last character of a string
+last_char = lambda s: s[-1]
+print(last_char("hello"))
+
+# Example 16: Reverse a string
+reverse = lambda s: s[::-1]
+print(reverse("hello"))
+
+# Example 17: Sort a list of integers
+sorted_list = sorted([3, 1, 4, 1, 5, 9], key=lambda x: x)
+print(sorted_list)
+
+# Example 18: Sort a list of strings by length
+sorted_strings = sorted(["apple", "banana", "cherry"], key=lambda s: len(s))
+print(sorted_strings)
+
+# Example 19: Calculate factorial using reduce
+from functools import reduce
+factorial = lambda n: reduce(lambda x, y: x * y, range(1, n + 1))
+print(factorial(5))
+
+# Example 20: Map function with lambda
+squared = list(map(lambda x: x ** 2, range(10)))
+print(squared)
+
+# Example 21: Combine map and filter
+filtered_mapped = list(map(lambda x: x ** 2, filter(lambda x: x % 2 == 0, range(10))))
+print(filtered_mapped)
+
+# Example 22: Conditional lambda
+conditional = lambda x: "Even" if x % 2 == 0 else "Odd"
+print(conditional(3))
+
+# Example 23: Sum of a list
+sum_list = lambda lst: sum(lst)
+print(sum_list([1, 2, 3, 4, 5]))
+
+# Example 24: Product of a list
+product_list = lambda lst: reduce(lambda x, y: x * y, lst)
+print(product_list([1, 2, 3, 4, 5]))
+
+# Example 25: Calculate mean of a list
+mean = lambda lst: sum(lst) / len(lst)
+print(mean([1, 2, 3, 4, 5]))
+
+# Example 26: Sort a list of tuples by the second element
+tuples = [(1, 'one'), (2, 'two'), (3, 'three')]
+sorted_tuples = sorted(tuples, key=lambda x: x[1])
+print(sorted_tuples)
+
+# Example 27: Check if a string starts with a vowel
+starts_with_vowel = lambda s: s[0].lower() in 'aeiou'
+print(starts_with_vowel("apple"))
+
+# Example 28: Extract the domain from an email
+extract_domain = lambda email: email.split('@')[1]
+print(extract_domain("user@example.com"))
+
+# Example 29: List comprehension with lambda
+list_comp = [lambda x=x: x * 2 for x in range(5)]
+print([f() for f in list_comp])
+
+# Example 30: Find the longest string in a list
+longest_string = lambda lst: max(lst, key=lambda s: len(s))
+print(longest_string(["short", "medium", "a very long string"]))
+
+# Example 31: Count the number of vowels in a string
+count_vowels = lambda s: len([char for char in s if char.lower() in 'aeiou'])
+print(count_vowels("hello"))
+
+# Example 32: Generate a list of squares
+squares = list(map(lambda x: x ** 2, range(10)))
+print(squares)
+
+# Example 33: Find the intersection of two lists
+intersection = lambda lst1, lst2: list(filter(lambda x: x in lst2, lst1))
+print(intersection([1, 2, 3], [2, 3, 4]))
+
+# Example 34: Zip two lists and sum corresponding elements
+zip_sum = lambda lst1, lst2: list(map(lambda x: x[0] + x[1], zip(lst1, lst2)))
+print(zip_sum([1, 2, 3], [4, 5, 6]))
+
+# Example 35: Flatten a list of lists
+flatten = lambda lst: [item for sublist in lst for item in sublist]
+print(flatten([[1, 2], [3, 4], [5, 6]]))
+
+# Example 36: Create a dictionary from two lists
+to_dict = lambda keys, values: dict(zip(keys, values))
+print(to_dict(['a', 'b', 'c'], [1, 2, 3]))
+
+# Example 37: Create a list of tuples from two lists
+to_tuples = lambda lst1, lst2: list(zip(lst1, lst2))
+print(to_tuples([1, 2, 3], ['a', 'b', 'c']))
+
+# Example 38: Get unique elements from a list
+unique = lambda lst: list(set(lst))
+print(unique([1, 2, 2, 3, 3, 4]))
+
+# Example 39: Count the frequency of elements in a list
+from collections import Counter
+frequency = lambda lst: Counter(lst)
+print(frequency([1, 2, 2, 3, 3, 3]))
+
+# Example 40: Convert a list of strings to integers
+str_to_int = lambda lst: list(map(int, lst))
+print(str_to_int(['1', '2', '3']))
+
+# Example 41: Get the indices of even numbers in a list
+even_indices = lambda lst: [i for i, x in enumerate(lst) if x % 2 == 0]
+print(even_indices([1, 2, 3, 4, 5, 6]))
+
+# Example 42: Find the difference between two lists
+difference = lambda lst1, lst2: list(filter(lambda x: x not in lst2, lst1))
+print(difference([1, 2, 3], [2, 3, 4]))
+
+# Example 43: Apply a function to each element in a nested list
+nested_apply = lambda lst: [list(map(lambda x: x * 2, sublist)) for sublist in lst]
+print(nested_apply([[1, 2], [3, 4], [5, 6]]))
+
+# Example 44: Create a dictionary from a list of keys and a single value
+dict_from_keys = lambda keys, value: {key: value for key in keys}
+print(dict_from_keys(['a', 'b', 'c'], 1))
+
+# Example 45: Group elements of a list into pairs
+group_pairs = lambda lst: list(zip(lst[::2], lst[1::2]))
+print(group_pairs([1, 2, 3, 4, 5, 6]))
+
+# Example 46: Find the index of the maximum element in a list
+max_index = lambda lst: lst.index(max(lst))
+print(max_index([1, 2, 3, 4, 5]))
+
+# Example 47: Find the index of the minimum element in a list
+min_index = lambda lst: lst.index(min(lst))
+print(min_index([1, 2, 3, 4, 5]))
+
+# Example 48: Combine a list of strings into a single string with a separator
+combine_strings = lambda lst, sep: sep.join(lst)
+print(combine_strings(["hello", "world"], " "))
+
 square = lambda x: x ** 2
 print(square(5))  # Output: 25
 
