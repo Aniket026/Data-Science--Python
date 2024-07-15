@@ -1,0 +1,162 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Jul 16 03:07:48 2024
+
+@author: anike
+"""
+
+import pandas as pd
+
+aniket=[1,2,3,4,5,6]
+lable=["a","b","c","d","e","d"]
+
+first=pd.Series(aniket,index=lable,name="aniket")
+
+print(first['a'])
+print(type(first))
+
+
+#-------------------------------------------------------------
+#updaing Series
+
+
+aniket=[1,2,3,4,5,6]
+lable=["a","b","c","d","e","d"]
+
+first=pd.Series([1,2,3,4,5,6],index=lable,name="aniket")
+print(first)
+first.update(pd.Series([11,22,33,44,55,66]))
+print(first)
+
+
+#------------------------------------------------------------
+
+#apply function to serirs
+
+# Create a sample series
+data = pd.Series([1, 2, 3, 4], index=['a', 'b', 'c', 'd'])
+
+# Update the value at index 'b'
+data['b'] = 20
+print(data)
+
+# Define a function to square the values
+def square(x):
+    return x * x
+
+# Apply the function to the series
+data = data.apply(square)
+print(data)
+
+#-------------------------------------------------------------
+#passing Dictionary as argument
+
+dict1={
+       "day1":[239,556],
+       'day2':466,
+       'day3':577
+       }
+lable1=[1,2,3]
+second=pd.Series(dict1,index=lable1)
+print(second)
+
+#------------------------------------------------------------
+
+#delete OR drop
+
+
+aniket=[1,2,3,4,5,6]
+lable=["a","b","c","d","e","d"]
+
+first=pd.Series(aniket,index=lable,name="aniket")
+
+print(first)
+
+del first['a']
+
+print(first)
+
+first=first.drop(labels=['e','d'])
+
+print(first)
+
+
+
+#-----------------------------------------------------------------
+
+
+#astype
+
+aniket=[1,2,3,4,5,6]
+lable=["a","b","c","d","e","d"]
+
+first=pd.Series(aniket,index=lable,name="aniket")
+
+print(type(first))
+
+first=first.astype(str)
+print(first.dtypes)
+print(type(first))
+
+
+
+#-----------------------------------------------------------------
+
+
+#to_numaric
+
+
+
+aniket=[1,2,3,4,5,6]
+lable=["a","b","c","d","e","d"]
+
+first=pd.Series(aniket,index=lable,name="aniket")
+
+
+print(type(first))
+
+first=first.astype(str)
+
+
+first=pd.to_numeric(first)
+
+print(first.dtypes)
+
+
+
+#------------------------------------------------------------------
+
+
+#.fillna(_)
+
+
+aniket=[1,2,3,None,5,6]
+lable=["a","b","c","d","e","d"]
+
+first=pd.Series(aniket,index=lable,name="aniket")
+
+print(first)
+
+first=first.fillna('hi')
+print(first)
+
+
+
+#--------------------------------------------------------------
+
+#.dropna()
+
+
+
+aniket=[1,2,3,None,5,6]
+lable=["a","b","c","d","e","d"]
+
+first=pd.Series(aniket,index=lable,name="aniket")
+
+print(first)
+
+first=first.dropna()
+print(first)
+
+
+
