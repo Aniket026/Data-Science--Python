@@ -1,0 +1,123 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Jul 18 10:04:02 2024
+
+@author: aniket
+"""
+
+numbers = [
+ 386, 462, 47, 418, 907, 344, 236, 375, 823, 566, 597, 978,
+328, 615, 953, 345,
+ 399, 162, 758, 219, 918, 237, 412, 566, 826, 248, 866,
+950, 626, 949, 687, 217,
+ 815, 67, 104, 58, 512, 24, 892, 894, 767, 553, 81, 379,
+843, 831, 445, 742, 717, 958,743, 527]
+
+
+for num in numbers:
+    if num==237:
+        print(num)
+        break
+    if num%2==0:
+        print(num)
+   
+            
+            
+
+
+#-------------------------------------------------------
+
+Q2. Write a python program to find a list of integers with exactly two
+occurrences of nineteen and at least three occurrences of five. Return True
+otherwise False.
+e.g. Input:
+    
+L=[19, 19, 15, 5, 3, 5, 5, 2]
+
+def check_list(lst):
+    count_19 = 0
+    count_5 = 0
+    for num in lst:
+        if num == 19:
+            count_19 += 1
+        elif num == 5:
+            count_5 += 1
+    return count_19 == 2 and count_5 >= 3
+check_list(L)
+
+    
+
+    
+        
+
+   
+    
+#--------------------------------------------------------------
+
+
+Q3. Write a python program to find numbers that are greater than 10 and have
+odd first and last digits.
+e.g: Input:
+[1, 3, 79, 10, 4, 1, 39, 62]
+Output:
+[79, 39]
+Input:
+[11, 31, 77, 93, 48, 1, 57]
+Output:
+[11, 31, 77, 93, 57]
+
+
+
+#-----------------------------------------------------------------------
+
+Q4. Write a python program to find the largest negative and smallest positive
+numbers (or 0 if none).
+e.g. Input:
+
+Output:
+[-6, 2]
+ 
+
+import sys
+
+x=[-12, -6, 300, -40, 2, 2, 3, 57, -50, -22, 12, 40, 9, 11, 18]
+def find_extremes(nums):
+    min_pos = sys.maxsize
+    max_neg = -sys.maxsize - 1
+    
+    for num in nums:
+        if num < 0 and num > max_neg:
+            max_neg = num
+        elif num > 0 and num < min_pos:
+            min_pos = num
+    
+    if max_neg == -sys.maxsize - 1:
+        max_neg = 0
+    if min_pos == sys.maxsize:
+        min_pos = 0
+    
+    return [max_neg, min_pos]
+
+
+find_extremes(x)
+
+
+#--------------------------------------------------------------
+Q5. 5. Write a Python program that matches a string that has an a followed by
+zero or more b's.
+
+
+
+
+import re
+def match_string(input_string):
+    pattern = r'^ab*$'
+    if re.match(pattern, input_string):
+        return True
+    else:
+        return False
+    
+input_string='abbbbbb'
+
+match_string(input_string)
+   
