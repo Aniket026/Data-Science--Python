@@ -1,0 +1,177 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Jul 23 04:22:02 2024
+
+@author: aniket
+
+"""
+
+import pandas as pd
+
+
+data={
+      "name":["aniket","pranit","rahul"],
+      "age":[33,55,77]
+      }
+
+df=pd.DataFrame(data)
+print(df)
+
+
+#-------------------------------------------------------------------------------
+#loc()
+
+
+
+data={
+      "name":["aniket","pranit","rahul"],
+      "age":[33,55,77]
+      }
+
+df=pd.DataFrame(data)
+
+
+print(df.loc[1])
+
+'''
+name    pranit
+age         55
+'''
+
+print(df.loc[[1]])
+print(df.loc[[0,2]])
+
+
+#-------------------------------------------------------------------------------
+#with the index you can give any index
+
+
+data={
+      "name":["aniket","pranit","rahul"],
+      "age":[33,55,77]
+      }
+
+df=pd.DataFrame(data,index=['day1','day2','day3'])
+
+
+print(df.loc[['day1']])
+print(df.loc[['day1','day2']])
+
+
+
+
+#-------------------------------------------------------------------------------
+#load the data through csv file
+
+
+
+
+import pandas as pd
+
+
+df=pd.read_csv("C:/1-Python/final_dataset.csv")
+df
+
+
+
+
+#-------------------------------------------------------------------------------
+#loading the  csv file as data frame
+#.to_string
+#it return all values of csv file
+
+
+import pandas as pd
+
+
+df=pd.read_csv("C:/1-Python/final_dataset.csv")
+print(df.to_string())
+
+
+
+#-------------------------------------------------------------------------------
+
+#max_rows
+
+#to increase the rows to display
+ 
+
+pd.options.display.max_rows=9999
+df=pd.read_csv("C:/1-Python/final_dataset.csv")
+df
+
+
+
+#-------------------------------------------------------------------------------
+
+
+# print first 10 rows
+
+pd.options.display.max_rows=9999
+df=pd.read_csv("C:/1-Python/final_dataset.csv")
+df.head()
+
+df.head(89)
+
+#-------------------------------------------------------------------------------
+
+
+# print last 10 rows
+
+
+df=pd.read_csv("C:/1-Python/final_dataset.csv")
+df.tail()
+
+df.tail(89)
+
+#-------------------------------------------------------------------------------
+
+#information about data frame
+
+
+
+df=pd.read_csv("C:/1-Python/final_dataset.csv")
+df.info()
+
+
+#-------------------------------------------------------------------------------
+#cleaning null value
+
+df1=df.isnull()
+print(df1)
+
+
+df1=df.dropna()
+
+
+#-------------------------------------------------------------------------------
+#replacing null value with specific value
+#fillna()
+
+df=df.fillna(130)
+
+#change specific column
+
+df=df['beds'].fillna(130)
+print(df)
+
+
+#fill by mean
+
+x=df['beds'].mean()
+df=df['beds'].fillna(x)
+
+
+#fill by mean
+
+x=df['beds'].median()
+df=df['beds'].fillna(x)
+
+
+#fill by mean
+
+x=df['beds'].mode()[0]
+df=df['beds'].fillna(x)
+
+#-------------------------------------------------------------------------------
+
