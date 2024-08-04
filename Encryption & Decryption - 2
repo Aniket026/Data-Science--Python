@@ -1,0 +1,65 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Aug  1 14:00:46 2024
+
+@author: aniket
+
+"""
+
+
+
+user=input("Enter the plain text : ")
+key=input("Enter the plain text : ")
+l=["a","b","c","d","e","f","g","h"
+   ,"i","j","k","l","m","n","o","p",
+   "q","r","s","t","u","v","w","x","y","z"]
+
+
+def en(user,key): 
+  if len(user) == len(key):
+       result=""
+       for us in user:
+           for k in  key:
+               if us in l:
+                   if k in key:
+                       pt=l.index(us)
+                       ke=l.index(k)
+                       ct=(pt+ke)%26
+                       a=l[ct]
+                       result += a
+                       break
+       print( result)
+  else:
+      repeated_key = ""
+      key_len = len(key)
+      for i in range(len(user)):
+              repeated_key += key[i % key_len]
+      print(repeated_key)
+      new_result=""
+      for us, rk in zip(user, repeated_key):
+                if us in l:
+                  if rk in l:
+                      pt=l.index(us)
+                      key=l.index(rk)
+                      ct=(pt+key)%26
+                      a=l[ct]
+                      new_result += a
+            
+                
+      print("Encryption Text : ",new_result)
+      
+      de=""
+      for us, rk in zip(new_result,repeated_key):
+                if us in l:
+                  if rk in l:
+                      pt=l.index(us)
+                      key=l.index(rk)
+                      ct=(pt-key)%26          
+                      a=l[ct]
+                      de += a
+      print("Decryption Text",de)
+
+en(user,key)
+      
+
+  
