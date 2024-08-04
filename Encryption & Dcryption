@@ -1,0 +1,38 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Jul 25 13:31:07 2024
+
+@author: aniket
+"""
+
+user=input("Enter the plain text : ")
+key=int(input("enter the key : "))
+l=["a","b","c","d","e","f","g","h"
+   ,"i","j","k","l","m","n","o","p",
+   "q","r","s","t","u","v","w","x","y","z"]
+
+user_1= user.lower()
+result=""
+for us in user_1:
+    if us in l:
+      pt=l.index(us)
+      ct=(pt+key)%26
+      #print(ct)
+      #print(l[ct],end="")
+      a=l[ct]
+      result += a
+print("Encryption : ",result)
+
+de=""
+for r in result:
+    if r in l:
+        pt=l.index(r)
+        ct=(pt-key)%26
+        a=l[ct]
+        de += a
+print("Dcryption :",de)
+    
+
+
+
+
