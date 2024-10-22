@@ -1,0 +1,88 @@
+
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Oct 22 10:32:15 2024
+
+@author: aniket
+
+"""
+
+import pandas as pd
+
+
+list1=[1,2,3,4,5,67,8,9]
+index=["a","b","c","d","e","f","g","h"]
+
+s1=pd.Series(list1,name="First",index=index)
+s1
+
+for i in s1:
+    print(i)
+    
+s1["a"]=111
+s1
+
+
+del s1["d"]
+
+
+s1.drop(labels=["b"])
+
+s1.dtype
+s2=s1.astype(str)
+s2.dtype
+
+
+print(s2)
+s2["d"]=876896
+
+print(s1)
+print(s2)
+
+
+s1["n"]=34
+print(s1)
+
+
+s1["k"]="aniket"
+print(s1)
+
+num_s1=pd.to_numeric(s1,errors='coerce')
+print(num_s1)
+
+
+
+
+c=num_s1.fillna("wd k d")
+
+print(c)
+
+
+c.dropna()
+print(c)
+s1.max
+
+
+new=pd.to_numeric(c,errors='coerce')
+new.max()
+
+
+new.isnull().sum()
+
+
+s1=pd.Series([1,2,34,5,6,7,8,9])
+s2=pd.Series([7,8,9,4])
+
+new_s1s2=pd.concat([s1,s2])
+print(new_s1s2)
+
+
+
+dict1={
+       "name":"aniket",
+       "age":21
+       }
+
+
+dict_series=pd.Series(dict1)
+print(dict_series)
