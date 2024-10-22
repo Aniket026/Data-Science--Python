@@ -1,0 +1,71 @@
+import re
+
+pattern = r"h.t"
+text = "hat, hit, hot, hut"
+matches = re.findall(pattern, text)
+print(matches)
+
+
+pattern = r"^Hello"
+text = "Hello world\nHello Python"
+matches = re.findall(pattern, text, re.MULTILINE)
+print(matches)
+
+
+pattern = r"world$"
+text = "Hello world\nGoodbye world"
+matches = re.findall(pattern, text, re.MULTILINE)
+print(matches)
+
+
+
+pattern = r"ho*"
+text = "h, ho, hoo, hooo"
+matches = re.findall(pattern, text)
+print(matches)
+
+
+pattern = r"ho+"
+text = "h, ho, hoo, hooo"
+matches = re.findall(pattern, text)
+print(matches)
+
+
+pattern = r"ho?"
+text = "h, ho, hoo, hooo"
+matches = re.findall(pattern, text)
+print(matches)
+
+
+
+
+pattern = r"h[aeiou]t"
+text = "hat, hit, hot, hut, het"
+matches = re.findall(pattern, text)
+print(matches)
+
+
+
+pattern = r"cat|dog"
+text = "I have a cat and a dog."
+matches = re.findall(pattern, text)
+print(matches)
+
+
+
+
+pattern = r"(ha)+"
+text = "hahaha, ha, haaaa"
+matches = re.findall(pattern, text)
+print(matches)
+
+
+
+pattern = r"\."
+text = "Use a dot . to end a sentence."
+matches = re.findall(pattern, text)
+print(matches)
+
+
+
+
